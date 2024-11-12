@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -45,6 +46,11 @@ const Header = () => {
                 <a className="nav-link" href="#">
                   Link
                 </a>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/logout">
+                  Logout
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a

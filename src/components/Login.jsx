@@ -58,9 +58,14 @@ const Login = () => {
       const response = await axios.post(`${apiUrl}/login`, formData);
 
       if (response.status === 200) {
-        const { token } = response.data;
-        // Store the token in localStorage
+        // Assume you have received a token from the backend after login
+        const token = response.data.token;
+
+        // Store the token in LocalStorage (or SessionStorage) for persistence
         localStorage.setItem("token", token);
+
+        // Set the token in Axios as a default header so all requests include it
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
         notifySuccess("Logged in successfully.");
         navigate("/dashboard");
@@ -68,7 +73,7 @@ const Login = () => {
         notifyError("Something went wrong!");
       }
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
       notifyError(error.response.data.message);
     }
   };
@@ -96,7 +101,7 @@ const Login = () => {
                 name="email"
                 placeholder="Enter email address"
                 onChange={handleInputChange} // Update formData state
-                autoComplete
+                autoComplete="true"
               />
             </div>
 
@@ -111,7 +116,7 @@ const Login = () => {
                 name="password"
                 placeholder=""
                 onChange={handleInputChange} // Update formData state
-                autoComplete
+                autoComplete="true"
               />
             </div>
 
