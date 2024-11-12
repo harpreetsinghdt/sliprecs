@@ -6,11 +6,8 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
-  // Function to show success notification
-  // const notifySuccess = () =>
-  // toast.success("Success! Your action was successful!");
   const toastConfig = {
     // position: toast.POSITION.TOP_RIGHT, // Correct enum usage
     autoClose: 2000, // Close the toast after 3 seconds
@@ -31,11 +28,8 @@ const Signup = () => {
   const notifyWarning = (msg) => toast.warning(msg, toastConfig);
 
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
-    mobile: "",
     password: "",
-    cpassword: "",
   });
 
   const handleInputChange = (event) => {
@@ -50,45 +44,26 @@ const Signup = () => {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission behavior (page refresh)
 
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.mobile ||
-      !formData.password ||
-      !formData.cpassword
-    ) {
+    if (!formData.email || !formData.password) {
       notifyError("All fields are required!");
-      // notifyInfo();
-      // notifyWarning();
       return;
     }
     if (!formData.email.includes("@")) {
-      notifyError("Please enter correct email!");
-      return;
-    }
-    if (formData.name.length < 3) {
-      notifyError("Name must be 3 or more characters!");
-      return;
-    }
-    if (formData.mobile.length < 10) {
-      notifyError("Mobile must be 10 digits!");
-      return;
-    }
-    if (formData.password.length < 6) {
-      notifyError("Password must be 6 or more characters!");
-      return;
-    }
-    if (formData.password !== formData.cpassword) {
-      notifyError("Passwords do not match!");
+      notifyError("Please enter a valid email!");
       return;
     }
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
-      const response = await axios.post(`${apiUrl}/signup`, formData);
+      const response = await axios.post(`${apiUrl}/login`, formData);
+
       if (response.status === 200) {
-        notifySuccess("Signed up successfully.");
-        navigate("/login");
+        const { token } = response.data;
+        // Store the token in localStorage
+        localStorage.setItem("token", token);
+
+        notifySuccess("Logged in successfully.");
+        navigate("/dashboard");
       } else {
         notifyError("Something went wrong!");
       }
@@ -103,29 +78,16 @@ const Signup = () => {
       <section className="hero-section">
         <div className="container">
           <h1 className="display-4">
-            <Link to="/login" className="cta-btn">
-              Login
-            </Link>{" "}
-            / Signup
+            Login /{" "}
+            <Link to="/signup" className="cta-btn">
+              Sign Up
+            </Link>
           </h1>
-          <p className="lead">Create new account</p>
+          <p className="lead">Login with existing account.</p>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Full name
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                placeholder="Enter full name"
-                onChange={handleInputChange} // Update formData state
-              />
-            </div>
-            <div className="mb-3">
               <label htmlFor="email" className="form-label">
-                Email address
+                Enter Email address
               </label>
               <input
                 type="text"
@@ -134,24 +96,13 @@ const Signup = () => {
                 name="email"
                 placeholder="Enter email address"
                 onChange={handleInputChange} // Update formData state
+                autoComplete
               />
             </div>
-            <div className="mb-3">
-              <label htmlFor="mobile" className="form-label">
-                Email mobile number
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="mobile"
-                name="mobile"
-                placeholder="Enter 10 digits only"
-                onChange={handleInputChange} // Update formData state
-              />
-            </div>
+
             <div className="mb-3">
               <label htmlFor="password" className="form-label">
-                Choose password
+                Enter password
               </label>
               <input
                 type="password"
@@ -160,23 +111,12 @@ const Signup = () => {
                 name="password"
                 placeholder=""
                 onChange={handleInputChange} // Update formData state
+                autoComplete
               />
             </div>
+
             <div className="mb-3">
-              <label htmlFor="cpassword" className="form-label">
-                Confirm password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="cpassword"
-                name="cpassword"
-                placeholder=""
-                onChange={handleInputChange} // Update formData state
-              />
-            </div>
-            <div className="mb-3">
-              <button className="btn btn-success">Signup</button>
+              <button className="btn btn-success">Login</button>
             </div>
           </form>
         </div>
@@ -185,4 +125,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

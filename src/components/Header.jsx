@@ -38,16 +38,11 @@ const Header = () => {
           >
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="/signup">
-                  Login / Signup
-                </Link>
-              </li>
-              <li className="nav-item active">
                 <Link className="nav-link" to="/">
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link" href="#features">
                   Features
                 </a>
@@ -56,6 +51,16 @@ const Header = () => {
                 <a className="nav-link" href="#cta">
                   Get Started
                 </a>
+              </li> */}
+              <li className="nav-item active">
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/signup">
+                  Signup
+                </Link>
               </li>
             </ul>
           </div>

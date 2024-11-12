@@ -4,3 +4,6 @@
 .Toastify__close-button > svg {
   margin-top: 15px;
 }
+a {
+  text-decoration: none !important;
+}
