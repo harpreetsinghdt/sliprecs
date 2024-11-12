@@ -37,7 +37,7 @@ const Header = () => {
 
           <Offcanvas show={show} onHide={handleClose} placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>FaamBill Menu</Offcanvas.Title>
+              <Offcanvas.Title>FaamBill </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="flex-column">
