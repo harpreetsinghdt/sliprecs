@@ -1,3 +1,6 @@
 .nav-link {
   text-align: right;
 }
+.Toastify__close-button > svg {
+  margin-top: 15px;
+}
