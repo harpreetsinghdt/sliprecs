@@ -38,27 +38,17 @@ const Header = () => {
           >
             <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/" onClick={toggleNavbar}>
                   Home
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <a className="nav-link" href="#features">
-                  Features
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#cta">
-                  Get Started
-                </a>
-              </li> */}
               <li className="nav-item active">
-                <Link className="nav-link" to="/login">
+                <Link className="nav-link" to="/login" onClick={toggleNavbar}>
                   Login
                 </Link>
               </li>
               <li className="nav-item active">
-                <Link className="nav-link" to="/signup">
+                <Link className="nav-link" to="/signup" onClick={toggleNavbar}>
                   Signup
                 </Link>
               </li>

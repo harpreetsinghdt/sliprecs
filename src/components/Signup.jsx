@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -7,10 +7,17 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const navigate = useNavigate();
-  // Function to show success notification
-  // const notifySuccess = () =>
-  // toast.success("Success! Your action was successful!");
+  const navigate = useNavigate(); // Hook to navigate to another page
+
+  // Check if the user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
+    if (token) {
+      // Redirect to dashboard if already logged in
+      navigate("/dashboard");
+    }
+  }, [navigate]); // Empty dependency array ensures this runs only on component mount
+
   const toastConfig = {
     // position: toast.POSITION.TOP_RIGHT, // Correct enum usage
     autoClose: 2000, // Close the toast after 3 seconds
@@ -106,7 +113,7 @@ const Signup = () => {
             <Link to="/login" className="cta-btn">
               Login
             </Link>{" "}
-            / Signup
+            / <b>Signup</b>
           </h1>
           <p className="lead">Create new account</p>
           <form onSubmit={handleSubmit}>

@@ -6,7 +6,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signup from "./components/Signup.jsx";
 import LandingPage from "./components/LandingPage.jsx";
 import Login from "./components/Login.jsx";
+import Layout from "./components/auth/Layout";
 import Dashboard from "./components/auth/Dashboard.jsx";
+import Profile from "./components/auth/Profile.jsx";
+import Receipts from "./components/auth/Receipts.jsx";
+import Settings from "./components/auth/Settings.jsx";
+import Logout from "./components/auth/Logout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +32,30 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "/dashboard",
-        element: <Dashboard />,
+        path: "/logout",
+        element: <Logout />,
+      },
+      {
+        path: "/", // Root path to auth layout
+        element: <Layout />,
+        children: [
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+          },
+          {
+            path: "receipts",
+            element: <Receipts />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
     ],
   },

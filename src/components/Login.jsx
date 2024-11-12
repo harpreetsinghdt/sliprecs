@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -7,7 +7,17 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Hook to navigate to another page
+
+  // Check if the user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("authToken"); // Assuming token is stored in localStorage
+    if (token) {
+      // Redirect to dashboard if already logged in
+      navigate("/dashboard");
+    }
+  }, [navigate]); // Empty dependency array ensures this runs only on component mount
+
   const toastConfig = {
     // position: toast.POSITION.TOP_RIGHT, // Correct enum usage
     autoClose: 2000, // Close the toast after 3 seconds
@@ -62,7 +72,7 @@ const Login = () => {
         const token = response.data.token;
 
         // Store the token in LocalStorage (or SessionStorage) for persistence
-        localStorage.setItem("token", token);
+        localStorage.setItem("authToken", token);
 
         // Set the token in Axios as a default header so all requests include it
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -83,7 +93,7 @@ const Login = () => {
       <section className="hero-section">
         <div className="container">
           <h1 className="display-4">
-            Login /{" "}
+            <b>Login</b> /{" "}
             <Link to="/signup" className="cta-btn">
               Sign Up
             </Link>
