@@ -1,10 +1,10 @@
 // routes/api.js
 const express = require("express");
 const router = express.Router();
-const User = require("../models/User");
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/auth");
+const User = require("../models/User");
+const Receipt = require("../models/Receipt");
 
 // Define an example GET route
 router.get("/", (req, res) => {
@@ -118,6 +118,73 @@ router.post("/login", async (req, res) => {
       status: "success",
       message: "Login successful",
       token, // Send the JWT token to the client
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "error", message: "Server error" });
+  }
+});
+
+// Add Receipt POST route
+router.post("/receipt/add", async (req, res) => {
+  const { title, amount, date, location, description, image } = req.body;
+  console.log(title);
+
+  if (!title || !amount || !date || !location) {
+    return res
+      .status(400)
+      .json({ status: "error", message: "Fill required fields!" });
+  }
+  if (title.length < 3) {
+    return res.status(400).json({
+      status: "error",
+      message: "Title must be of 3 or more characters",
+    });
+  }
+  if (amount < 0) {
+    return res.status(400).json({
+      status: "error",
+      message: "Amount must be greater than zero",
+    });
+  }
+  if (location.length < 3) {
+    return res.status(400).json({
+      status: "error",
+      message: "Location must be of 3 or more characters",
+    });
+  }
+
+  try {
+    // Check if the user already exists
+    const isExists = await Receipt.findOne({ title });
+    if (isExists) {
+      return res
+        .status(400)
+        .json({ status: "error", message: "Title is already entered!" });
+    }
+
+    // Create new entry
+    const addNew = new Receipt({
+      title,
+      amount,
+      location,
+      date,
+      description,
+      image,
+    });
+
+    // Save the new entry
+    await addNew.save();
+
+    // Return success message
+    res.status(200).json({
+      status: "success",
+      message: "Receipt added successfully.",
+      receipt: {
+        title: addNew.title,
+        amount: addNew.amount,
+        location: addNew.location,
+      },
     });
   } catch (error) {
     console.error(error);

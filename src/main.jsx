@@ -13,6 +13,7 @@ import Receipts from "./components/auth/receipts/Receipts.jsx";
 import Settings from "./components/auth/Settings.jsx";
 import Logout from "./components/auth/Logout.jsx";
 import ReceiptAdd from "./components/auth/receipts/Add.jsx";
+import ReceiptsNavTabs from "./components/auth/receipts/NavTabs.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,9 +46,13 @@ const router = createBrowserRouter([
             element: <Dashboard />,
           },
           {
-            path: "receipts",
-            element: <Receipts />,
+            path: "/receipts",
+            element: <ReceiptsNavTabs />,
             children: [
+              {
+                path: "",
+                element: <Receipts />,
+              },
               {
                 path: "add",
                 element: <ReceiptAdd />,

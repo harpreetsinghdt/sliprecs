@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import { Link } from "react-router-dom";
-
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import {
+  notifySuccess,
+  notifyError,
+  notifyInfo,
+  notifyWarning,
+} from "./utils/toastConfig.jsx";
 
 const Signup = () => {
   const navigate = useNavigate(); // Hook to navigate to another page
@@ -17,25 +20,6 @@ const Signup = () => {
       navigate("/dashboard");
     }
   }, [navigate]); // Empty dependency array ensures this runs only on component mount
-
-  const toastConfig = {
-    // position: toast.POSITION.TOP_RIGHT, // Correct enum usage
-    autoClose: 2000, // Close the toast after 3 seconds
-    hideProgressBar: false, // Optional to show progress bar
-    pauseOnHover: true, // Pause the auto-close when hovering over the toast
-  };
-  const notifySuccess = (msg) => {
-    toast.success(msg, toastConfig);
-  };
-
-  // Function to show error notification
-  const notifyError = (msg) => toast.error(msg, toastConfig);
-
-  // Function to show info notification
-  const notifyInfo = (msg) => toast.info(msg, toastConfig);
-
-  // Function to show warning notification
-  const notifyWarning = (msg) => toast.warning(msg, toastConfig);
 
   const [formData, setFormData] = useState({
     name: "",

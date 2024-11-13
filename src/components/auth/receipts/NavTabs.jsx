@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 function NavTabs() {
   return (
@@ -9,6 +9,8 @@ function NavTabs() {
           <NavLink
             className="nav-link"
             aria-current={({ isActive }) => (isActive ? "page" : undefined)}
+            aria-label="Receipts page"
+            end // Only match `/receipts`, not `/receipts/add`
             to="/receipts"
           >
             Receipts
@@ -18,12 +20,14 @@ function NavTabs() {
           <NavLink
             className="nav-link"
             aria-current={({ isActive }) => (isActive ? "page" : undefined)}
+            aria-label="Add page"
             to="add"
           >
             Add
           </NavLink>
         </li>
       </ul>
+      <Outlet />
     </>
   );
 }
