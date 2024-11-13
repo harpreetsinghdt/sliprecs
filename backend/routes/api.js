@@ -3,6 +3,9 @@ const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/auth");
+const multer = require("multer");
+const upload = multer();
+
 const User = require("../models/User");
 const Receipt = require("../models/Receipt");
 
@@ -126,7 +129,9 @@ router.post("/login", async (req, res) => {
 });
 
 // Add Receipt POST route
-router.post("/receipt/add", async (req, res) => {
+router.post("/receipt/add", upload.none(), async (req, res) => {
+  console.log(req.headers["content-type"]);
+  console.log(req.body);
   const { title, amount, date, location, description, image } = req.body;
   console.log(title);
 
@@ -186,6 +191,19 @@ router.post("/receipt/add", async (req, res) => {
         location: addNew.location,
       },
     });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "error", message: "Server error" });
+  }
+});
+
+// Receipts GET route
+router.get("/receipts", async (req, res) => {
+  try {
+    const data = await Receipt.find();
+    return res
+      .status(200)
+      .json({ status: "success", message: "All data fetched.", data });
   } catch (error) {
     console.error(error);
     res.status(500).json({ status: "error", message: "Server error" });
