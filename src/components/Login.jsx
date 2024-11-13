@@ -105,13 +105,13 @@ const Login = () => {
                 Enter Email address
               </label>
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 id="email"
                 name="email"
                 placeholder="Enter email address"
                 onChange={handleInputChange} // Update formData state
-                autoComplete="true"
+                autoComplete="on"
               />
             </div>
 
@@ -126,7 +126,7 @@ const Login = () => {
                 name="password"
                 placeholder=""
                 onChange={handleInputChange} // Update formData state
-                autoComplete="true"
+                autoComplete="on"
               />
             </div>
 

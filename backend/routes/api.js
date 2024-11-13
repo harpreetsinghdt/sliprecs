@@ -8,7 +8,6 @@ const authMiddleware = require("../middleware/auth");
 
 // Define an example GET route
 router.get("/", (req, res) => {
-  console.log("here ");
   res.json({ message: "Welcome to the API" });
 });
 
