@@ -9,9 +9,10 @@ import Login from "./components/Login.jsx";
 import Layout from "./components/auth/Layout";
 import Dashboard from "./components/auth/Dashboard.jsx";
 import Profile from "./components/auth/Profile.jsx";
-import Receipts from "./components/auth/Receipts.jsx";
+import Receipts from "./components/auth/receipts/Receipts.jsx";
 import Settings from "./components/auth/Settings.jsx";
 import Logout from "./components/auth/Logout.jsx";
+import ReceiptAdd from "./components/auth/receipts/Add.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,19 +41,25 @@ const router = createBrowserRouter([
         element: <Layout />,
         children: [
           {
-            path: "dashboard",
+            path: "/dashboard",
             element: <Dashboard />,
           },
           {
             path: "receipts",
             element: <Receipts />,
+            children: [
+              {
+                path: "add",
+                element: <ReceiptAdd />,
+              },
+            ],
           },
           {
-            path: "settings",
+            path: "/settings",
             element: <Settings />,
           },
           {
-            path: "profile",
+            path: "/profile",
             element: <Profile />,
           },
         ],
