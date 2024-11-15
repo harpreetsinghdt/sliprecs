@@ -53,12 +53,6 @@ function AddReceiptForm() {
     data.append("description", formData.description);
     data.append("image", image);
 
-    console.log(formData);
-    console.log(data);
-    for (let [key, value] of data.entries()) {
-      console.log(key, value);
-    }
-
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await axios.post(`${apiUrl}/receipt/add`, data, {
