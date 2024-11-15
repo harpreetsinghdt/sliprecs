@@ -226,6 +226,19 @@ router.get("/receipts", async (req, res) => {
   }
 });
 
+// Receipts Delete route
+router.delete("/receipts", async (req, res) => {
+  try {
+    const data = await Receipt.find();
+    return res
+      .status(200)
+      .json({ status: "success", message: "All data fetched.", data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "error", message: "Server error" });
+  }
+});
+
 router.get("/protected", authMiddleware, (req, res) => {
   res.json({ message: "This is a protected route", user: req.user });
 });
