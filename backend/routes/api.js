@@ -4,10 +4,22 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const authMiddleware = require("../middleware/auth");
 const multer = require("multer");
-const upload = multer();
 
+const path = require("path");
 const User = require("../models/User");
 const Receipt = require("../models/Receipt");
+
+// Configure storage for uploaded files
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/receipts"); // Set upload directory
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname)); // Create a unique filename
+  },
+});
+
+const upload = multer({ storage: storage });
 
 // Define an example GET route
 router.get("/", (req, res) => {
@@ -129,7 +141,11 @@ router.post("/login", async (req, res) => {
 });
 
 // Add Receipt POST route
-router.post("/receipt/add", upload.none(), async (req, res) => {
+router.post("/receipt/add", upload.single("image"), async (req, res) => {
+  if (!req.file) return res.status(400).json({ message: "No file uploaded" });
+
+  const imagePath = `/uploads/receipts/${req.file.filename}`;
+
   console.log(req.headers["content-type"]);
   console.log(req.body);
   const { title, amount, date, location, description, image } = req.body;
@@ -175,7 +191,7 @@ router.post("/receipt/add", upload.none(), async (req, res) => {
       location,
       date,
       description,
-      image,
+      image: imagePath,
     });
 
     // Save the new entry

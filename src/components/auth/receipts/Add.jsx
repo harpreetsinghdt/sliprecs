@@ -51,7 +51,7 @@ function AddReceiptForm() {
     data.append("date", formData.date);
     data.append("location", formData.location);
     data.append("description", formData.description);
-    // data.append("image", image);
+    data.append("image", image);
 
     console.log(formData);
     console.log(data);

@@ -29,6 +29,7 @@ const Receipts = () => {
           {data.map((row) => (
             <li key={row._id}>
               {row.title} - {row.amount} - {row.location}
+              <img src={row.image} alt="image" />
             </li>
           ))}
         </ul>
