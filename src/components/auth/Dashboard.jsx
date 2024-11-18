@@ -4,7 +4,6 @@ const Dashboard = () => {
   return (
     <div>
       <h2>Welcome to your Dashboard!</h2>
-      {/* Dashboard content here */}
       <p>here is the dashboard</p>
     </div>
   );
