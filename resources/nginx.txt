@@ -33,3 +33,4 @@ sudo systemctl reload nginx
 sudo kill -9 4147  # Replace 12345 with the actual PID
 
 curl -X POST http://127.0.0.1:5001/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
+
