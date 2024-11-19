@@ -16,7 +16,6 @@ const LandingPage = () => {
           </a>
         </div>
       </section>
-
       {/* Features Section */}
       <section id="features" className="feature-section">
         <div className="container text-center">
@@ -55,7 +54,6 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
       {/* Call to Action Section */}
       <section id="cta" className="text-center py-5">
         <div className="container">
@@ -69,7 +67,7 @@ const LandingPage = () => {
           </Link>
         </div>
       </section>
-testing content to auto build try again sd dsfd 111
+      testing content to auto build try again sd dsfd 111 222
       {/* Footer */}
       <footer className="text-center py-4 bg-light">
         <p>&copy; 2024 sliprecs. All Rights Reserved.</p>
