@@ -1,0 +1,5 @@
+chmod +x /var/www/webhook-handler.sh
+
+
+import os
+os.system('bash /var/www/webhook-handler.sh')
