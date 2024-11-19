@@ -144,7 +144,8 @@ router.post("/login", async (req, res) => {
 router.post("/receipt/add", upload.single("image"), async (req, res) => {
   if (!req.file) return res.status(400).json({ message: "No file uploaded" });
 
-  const imagePath = `/uploads/receipts/${req.file.filename}`;
+  // const imagePath = `/uploads/receipts/${req.file.filename}`;
+  const imagePath = `${req.file.filename}`;
 
   console.log(req.headers["content-type"]);
   console.log(req.body);

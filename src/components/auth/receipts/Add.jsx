@@ -178,7 +178,7 @@ function AddReceiptForm() {
             type="file"
             id="image"
             name="image"
-            accept="image/*"
+            accept=".jpg,.jpeg,.png,.pdf"
             className={`form-control ${errors.image ? "is-invalid" : ""}`}
             onChange={handleImageChange}
           />
