@@ -221,7 +221,8 @@ router.get("/receipts", async (req, res) => {
 
   try {
     const data = await Receipt.find().sort({
-      createdAt: sort === "desc" ? -1 : 1,
+      // createdAt: sort === "desc" ? -1 : 1,
+      date: sort === "desc" ? -1 : 1,
     }); // -1 for descending, 1 for ascending;
     return res
       .status(200)
