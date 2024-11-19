@@ -193,6 +193,7 @@ router.post("/receipt/add", upload.single("image"), async (req, res) => {
       date,
       description,
       image: imagePath,
+      createdAt: Date.now(),
     });
 
     // Save the new entry
@@ -216,8 +217,12 @@ router.post("/receipt/add", upload.single("image"), async (req, res) => {
 
 // Receipts GET route
 router.get("/receipts", async (req, res) => {
+  const { sort } = req.query;
+
   try {
-    const data = await Receipt.find();
+    const data = await Receipt.find().sort({
+      createdAt: sort === "desc" ? -1 : 1,
+    }); // -1 for descending, 1 for ascending;
     return res
       .status(200)
       .json({ status: "success", message: "All data fetched.", data });

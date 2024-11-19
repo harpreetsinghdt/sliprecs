@@ -2,6 +2,7 @@ import axios from "axios";
 // import path from "path";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
+import DateFormat from "../../utils/DateFormat";
 
 const Receipts = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -23,7 +24,11 @@ const Receipts = () => {
     const fetchData = async () => {
       try {
         const apiUrl = import.meta.env.VITE_API_URL;
-        const response = await axios.get(`${apiUrl}/receipts`);
+        const response = await axios.get(`${apiUrl}/receipts`, {
+          params: {
+            sort: "desc", // Sorting parameter for descending order
+          },
+        });
 
         // console.log(response.data);
         setData(response.data.data);
@@ -52,23 +57,23 @@ const Receipts = () => {
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
   };
-  //
-  const [search, setSearch] = useState("");
 
-  //  currentPage = data.filter(
-  //    (row) =>
-  //      row.title.includes(filter) ||
-  //      row.amount.includes(filter) ||
-  //      row.location.includes(filter) ||
-  //      row.date.includes(filter) ||
-  //      row.description.includes(filter)
-  //  );
+  const [search, setSearch] = useState("");
 
   const handleSearch = (e) => {
     let search = e.target.value;
     setSearch(search);
     if (search !== "") {
-      setCurrentData(data.filter((row) => row.title.includes(search)));
+      setCurrentData(
+        data.filter(
+          (row) =>
+            row.title.includes(search) ||
+            row.amount.includes(search) ||
+            row.location.includes(search) ||
+            row.date.includes(search) ||
+            row.description.includes(search)
+        )
+      );
     } else {
       setCurrentData(
         data.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage)
@@ -131,7 +136,9 @@ const Receipts = () => {
                     </th>
                     <td>{row.title}</td>
                     <td>{row.amount}</td>
-                    <td>{row.date}</td>
+                    <td>
+                      <DateFormat date={row.date} format="MMM D, YYYY hh:mm A" />
+                    </td>
                     <td>{row.location}</td>
                     <td>{row.description}</td>
                   </tr>

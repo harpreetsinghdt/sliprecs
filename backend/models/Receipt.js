@@ -15,6 +15,7 @@ const receiptSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+
   location: {
     type: String,
     required: true,
@@ -24,6 +25,14 @@ const receiptSchema = new mongoose.Schema({
   },
   image: {
     type: String,
+  },
+  createdAt: {
+    type: Date,
+    // required: true,
+  },
+  updatedAt: {
+    type: Date,
+    // required: true,
   },
 });
 
