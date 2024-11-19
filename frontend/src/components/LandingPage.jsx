@@ -69,7 +69,7 @@ const LandingPage = () => {
           </Link>
         </div>
       </section>
-asdas dfgd dsfs 5343453
+asdas dfgd dsfs 5343453 fgfsdfsd
       {/* Footer */}
       <footer className="text-center py-4 bg-light">
         <p>&copy; 2024 sliprecs. All Rights Reserved.</p>
