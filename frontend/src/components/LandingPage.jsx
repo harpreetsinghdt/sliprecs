@@ -72,7 +72,7 @@ const LandingPage = () => {
 
       {/* Footer */}
       <footer className="text-center py-4 bg-light">
-        <p>&copy; 2024 ReceiptSaver. All Rights Reserved.</p>
+        <p>&copy; 2024 sliprecs. All Rights Reserved.</p>
       </footer>
     </>
   );
