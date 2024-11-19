@@ -62,7 +62,7 @@ const LandingPage = () => {
           <h2 className="display-4 mb-4">Ready to Start Saving Receipts?</h2>
           <p className="lead mb-4">
             Join thousands of users who are organizing their receipts
-            effortlessly. Get started today!
+            effortlessly. Get started today. Its free!
           </p>
           <Link to="signup" className="cta-btn">
             Sign Up Now
