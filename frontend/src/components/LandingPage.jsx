@@ -67,7 +67,7 @@ const LandingPage = () => {
           </Link>
         </div>
       </section>
-      testing content to auto build try again sd dsfd 55555 11111
+      testing content to auto build try again sd dsfd 55555 11111 dsad
       {/* Footer */}
       <footer className="text-center py-4 bg-light">
         <p>&copy; 2024 sliprecs. All Rights Reserved.</p>
