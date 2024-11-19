@@ -181,6 +181,7 @@ function AddReceiptForm() {
             accept=".jpg,.jpeg,.png,.pdf"
             className={`form-control ${errors.image ? "is-invalid" : ""}`}
             onChange={handleImageChange}
+            capture="environment"
           />
           {errors.image && (
             <div className="invalid-feedback">{errors.image}</div>
