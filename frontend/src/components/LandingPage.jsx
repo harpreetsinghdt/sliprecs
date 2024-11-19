@@ -69,7 +69,7 @@ const LandingPage = () => {
           </Link>
         </div>
       </section>
-testing content to auto build 
+testing content to auto build try again
       {/* Footer */}
       <footer className="text-center py-4 bg-light">
         <p>&copy; 2024 sliprecs. All Rights Reserved.</p>
