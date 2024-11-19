@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "webhook-flask",
+      "script": "webhook.py",
+      "interpreter": "python3",
+      "args": [],
+      "watch": true,
+      "env": {
+        "FLASK_ENV": "production"
+      }
+    }
+  ]
+}
