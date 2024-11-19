@@ -67,7 +67,7 @@ const LandingPage = () => {
           </Link>
         </div>
       </section>
-     345345353
+     345345353 123453345
       {/* Footer */}
       <footer className="text-center py-4 bg-light">
         <p>&copy; 2024 sliprecs. All Rights Reserved.</p>
