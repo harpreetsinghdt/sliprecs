@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import DateFormat from "../../utils/DateFormat";
+import ImageDownloader from "../../utils/ImageDownloader";
 
 const Receipts = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
@@ -44,7 +45,7 @@ const Receipts = () => {
 
   const [currentData, setCurrentData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = 5;
+  const itemsPerPage = 3;
 
   useEffect(() => {
     // Slice the data for the current page
@@ -137,7 +138,10 @@ const Receipts = () => {
                     <td>{row.title}</td>
                     <td>{row.amount}</td>
                     <td>
-                      <DateFormat date={row.date} format="MMM D, YYYY hh:mm A" />
+                      <DateFormat
+                        date={row.date}
+                        format="MMM D, YYYY hh:mm A"
+                      />
                     </td>
                     <td>{row.location}</td>
                     <td>{row.description}</td>
@@ -160,6 +164,10 @@ const Receipts = () => {
         {isViewerOpen && (
           <div className="viewer" onClick={closeViewer}>
             <img src={currentImage} alt="Full Screen" />
+            <ImageDownloader
+              imageUrl={currentImage}
+              fileName="downloaded-receipt.jpg"
+            />
           </div>
         )}
         {/* <ul>
@@ -191,8 +199,6 @@ const Receipts = () => {
               </li>
             );
           })}
-
-          
           </ul> */}
       </div>
     </div>

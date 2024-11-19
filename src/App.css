@@ -74,3 +74,10 @@ a {
 }
 
 /** pagiantion ends*/
+
+.downloadReceipt {
+  position: absolute;
+  top: 11%;
+  border: 0;
+  border-radius: 5px;
+}
