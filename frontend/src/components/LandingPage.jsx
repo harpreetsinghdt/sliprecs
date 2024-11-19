@@ -14,8 +14,8 @@ const LandingPage = () => {
           <a href="#cta" className="cta-btn">
             Get Started
           </a>
-          asdasdasdasdf a
         </div>
+        234534543  asdasdasdasdf a
       </section>
       {/* Features Section */}
       <section id="features" className="feature-section">

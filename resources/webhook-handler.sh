@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOGFILE="/var/www/sliprecs/webhook-handler.log"
+
+# Log the start time
+echo "$(date) - Starting webhook deployment..." >> "$LOGFILE"
+
 # Change to your project directory
 cd /var/www/sliprecs/  # Adjust if necessary
 
@@ -20,3 +25,7 @@ cp -r /var/www/sliprecs/frontend/dist/* /var/www/html/
 # Restart backend server (Flask in this case)
 # If using PM2 to manage the Flask app, restart the app
 pm2 restart sliprecs-backend  # Adjust with the correct PM2 app name if using PM2
+
+
+# Log the completion
+echo "$(date) - Webhook deployment completed successfully" >> "$LOGFILE"
