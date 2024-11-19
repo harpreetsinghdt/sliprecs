@@ -3,3 +3,6 @@ chmod +x /var/www/webhook-handler.sh
 
 import os
 os.system('bash /var/www/webhook-handler.sh')
+
+
+sudo nano /etc/nginx/sites-available/default

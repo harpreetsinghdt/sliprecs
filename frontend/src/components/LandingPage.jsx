@@ -7,7 +7,7 @@ const LandingPage = () => {
       {/* Hero Section */}
       <section className="hero-section">
         <div className="container">
-          <h1 className="display-4">Welcome to ReceiptSaver</h1>
+          <h1 className="display-4">Welcome to sliprecs</h1>
           <p className="lead">
             Effortlessly save and organize your receipts in one place!
           </p>
