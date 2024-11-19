@@ -1,0 +1,29 @@
+server {
+    listen 80;
+    server_name sliprecs.com;
+
+    # React App
+    location / {
+        root /var/www/sliprecs/frontend/build;
+        try_files $uri /index.html;
+    }
+
+    # Proxy API requests to Node.js backend
+    location /api/ {
+        proxy_pass http://localhost:5000; # Adjust to your Node.js backend port
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+}
+
+sudo chmod -R 755 /var/www/sliprecs/frontend/dist
+sudo chown -R www-data:www-data /var/www/sliprecs/frontend/dist
+
+
+sudo nano /etc/nginx/sites-available/default
+
+sudo nginx -t
+sudo systemctl reload nginx

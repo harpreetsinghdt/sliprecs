@@ -152,7 +152,7 @@ const Receipts = () => {
             </tbody>
           </table>
           {/* Pagination Controls */}
-
+          {`Showing page ${currentPage + 1} of ${Math.ceil(data.length / itemsPerPage)}`}
           <ReactPaginate
             pageCount={Math.ceil(data.length / itemsPerPage)} // Total pages
             onPageChange={handlePageChange} // Page change handler

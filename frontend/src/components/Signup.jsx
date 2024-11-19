@@ -76,6 +76,12 @@ const Signup = () => {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
+
+      // const axiosInstance = await axios.create({
+      //   baseURL: { apiUrl },
+      //   withCredentials: true, // Include credentials like cookies
+      // });
+
       const response = await axios.post(`${apiUrl}/signup`, formData);
       if (response.status === 200) {
         notifySuccess("Signed up successfully.");
@@ -84,8 +90,8 @@ const Signup = () => {
         notifyError("Something went wrong!");
       }
     } catch (error) {
-      console.log(error.response.data);
-      notifyError(error.response.data.message);
+      console.log(error.response);
+      // notifyError(error.response.data.message);
     }
   };
 
