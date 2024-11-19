@@ -61,7 +61,7 @@ const Header = () => {
                   Logout
                 </Link>
               </Nav>
-              <Form className="d-flex mt-3" role="search">
+              {/* <Form className="d-flex mt-3" role="search">
                 <FormControl
                   type="search"
                   placeholder="Search"
@@ -69,7 +69,7 @@ const Header = () => {
                   aria-label="Search"
                 />
                 <Button variant="outline-success">Search</Button>
-              </Form>
+              </Form> */}
             </Offcanvas.Body>
           </Offcanvas>
         </div>
