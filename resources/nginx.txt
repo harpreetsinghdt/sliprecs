@@ -65,3 +65,10 @@ sudo chmod 600 /var/www/.ssh/id_ed25519
 
 eval "$(ssh-agent -s)"
 ssh-add /var/www/.ssh/id_ed25519
+
+
+
+sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
+
+sudo -u www-data ssh -T git@github.com
+sudo -u www-data git pull origin main
