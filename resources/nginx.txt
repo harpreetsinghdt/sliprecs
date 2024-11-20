@@ -64,4 +64,4 @@ sudo chmod 600 /var/www/.ssh/id_ed25519
 
 
 eval "$(ssh-agent -s)"
-ssh-add /path/to/id_ed25519
+ssh-add /var/www/.ssh/id_ed25519
