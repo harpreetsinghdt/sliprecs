@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL, // Replace with your frontend's URL from env
+    origin: process.env.FRONTEND_URL, // Replace with your frontend's URL from env file
     credentials: true, // If you're using cookies/auth headers
   })
 );
