@@ -26,7 +26,7 @@ dotenv.config();
 const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
 
-logger.info(envFile);
+// logger.info(envFile);
 
 // Initialize Express app
 const app = express();
@@ -40,8 +40,7 @@ app.use(
 );
 
 app.use(express.json()); // For parsing application/json
-logger.info("logger works");
-logger.info("logger works 2");
+
 logger.info(path.join(__dirname, "uploads"));
 
 // Serve static files from the `uploads` directory
