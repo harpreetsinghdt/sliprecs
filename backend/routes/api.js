@@ -26,6 +26,11 @@ router.get("/", (req, res) => {
   res.json({ message: "Welcome to the nodejs + express backend API." });
 });
 
+// Define an example GET route
+router.get("/test", (req, res) => {
+  res.json({ message: "Test route" });
+});
+
 // Signup POST route
 router.post("/signup", async (req, res) => {
   const { name, email, mobile, password, cpassword } = req.body;

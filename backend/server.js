@@ -18,6 +18,7 @@ app.use(
     credentials: true, // If you're using cookies/auth headers
   })
 );
+
 app.use(express.json()); // For parsing application/json
 // Serve static files from the `uploads` directory
 app.use("/uploads", express.static("uploads"));
