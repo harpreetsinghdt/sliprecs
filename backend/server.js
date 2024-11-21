@@ -11,7 +11,7 @@ dotenv.config();
 const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
 
-// Initialize Express app below
+// Initialize Express app below as
 const app = express();
 
 // Middleware
