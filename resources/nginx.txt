@@ -101,6 +101,9 @@ curl http://localhost:5001
 sudo chmod -R 755 /var/www/sliprecs/backend/uploads
 sudo chown -R www-data:www-data /var/www/sliprecs/backend/uploads
 
+sudo chmod -R 755 /var/www/sliprecs/backend/.env.production
+sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env.production
+
 
 rm -rf /var/www/sliprecs/backend/uploads/receipts/*
 rm -ri /var/www/sliprecs/backend/uploads/receipts/* y or n 
