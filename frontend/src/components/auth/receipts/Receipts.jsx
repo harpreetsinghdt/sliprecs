@@ -110,6 +110,7 @@ const Receipts = () => {
             <tbody>
               {currentData.map((row, index) => {
                 let imgPath = "";
+                // path to img folder
                 if (row.image !== undefined && row.image.includes("uploads")) {
                   imgPath = `${backendUrl}${row.image}`;
                 } else {

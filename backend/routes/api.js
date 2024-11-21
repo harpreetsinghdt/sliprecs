@@ -152,8 +152,6 @@ router.post("/receipt/add", upload.single("image"), async (req, res) => {
   // const imagePath = `/uploads/receipts/${req.file.filename}`;
   const imagePath = `${req.file.filename}`;
 
-  console.log(req.headers["content-type"]);
-  console.log(req.body);
   const { title, amount, date, location, description, image } = req.body;
   console.log(title);
 
