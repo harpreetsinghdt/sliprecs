@@ -23,7 +23,7 @@ app.use(
 );
 
 app.use(express.json()); // For parsing application/json
-
+console.log("path ",path.join(__dirname, "uploads"));
 // Serve static files from the `uploads` directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
@@ -33,6 +33,7 @@ app.options("/api/*", (req, res) => {
   res.header("Access-Control-Allow-Headers", "Content-Type,Authorization");
   res.sendStatus(204);
 });
+
 
 // Set up routes
 app.use("/api", apiRoutes);
