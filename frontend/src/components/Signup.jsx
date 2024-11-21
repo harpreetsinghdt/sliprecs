@@ -79,7 +79,7 @@ const Signup = () => {
 
       // const axiosInstance = await axios.create({
       //   baseURL: { apiUrl },
-      //   withCredentials: true, // Include credentials like cookies
+      //   withCredentials: true, // Include credentials like cookies if reuired
       // });
 
       const response = await axios.post(`${apiUrl}/signup`, formData);
