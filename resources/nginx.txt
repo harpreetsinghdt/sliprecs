@@ -116,3 +116,10 @@ rm -rf /var/www/sliprecs/backend/uploads/receipts/*
 rm -ri /var/www/sliprecs/backend/uploads/receipts/* y or n 
 
 cat webhook.py
+
+
+/* mongodb production */
+sudo systemctl status mongod
+sudo netstat -tuln | grep 27017
+
+
