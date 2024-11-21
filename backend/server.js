@@ -20,8 +20,9 @@ app.use(
 );
 
 app.use(express.json()); // For parsing application/json
+
 // Serve static files from the `uploads` directory
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("backend/uploads"));
 
 app.options("/api/*", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
