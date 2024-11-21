@@ -15,7 +15,7 @@ const LandingPage = () => {
             Get Started
           </a>
         </div>
-        5555555 11111
+        Wow it working finally. Thank you God
       </section>  
       {/* Features Section */}
       <section id="features" className="feature-section">
