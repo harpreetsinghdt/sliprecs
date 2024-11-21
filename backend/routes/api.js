@@ -27,8 +27,21 @@ router.get("/", (req, res) => {
 });
 
 // Define an example GET route
-router.get("/test", (req, res) => {
-  res.json({ message: "Test route" });
+router.get("/users", async (req, res) => {
+  const { sort } = req.query;
+
+  try {
+    const data = await User.find().sort({
+      // createdAt: sort === "desc" ? -1 : 1,
+      date: sort === "desc" ? -1 : 1,
+    }); // -1 for descending, 1 for ascending;
+    return res
+      .status(200)
+      .json({ status: "success", message: "All data fetched.", data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ status: "error", message: "Server error" });
+  }
 });
 
 // Signup POST route
