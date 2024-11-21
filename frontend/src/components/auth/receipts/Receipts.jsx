@@ -47,6 +47,8 @@ const Receipts = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 3;
 
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
   useEffect(() => {
     // Slice the data for the current page
     setCurrentData(
@@ -152,9 +154,10 @@ const Receipts = () => {
             </tbody>
           </table>
           {/* Pagination Controls */}
-          {`Showing page ${currentPage + 1} of ${Math.ceil(data.length / itemsPerPage)}`}
+          {totalPages > 0 && `Showing page ${currentPage + 1} of ${totalPages}`}
+
           <ReactPaginate
-            pageCount={Math.ceil(data.length / itemsPerPage)} // Total pages
+            pageCount={totalPages} // Total pages
             onPageChange={handlePageChange} // Page change handler
             pageRangeDisplayed={5} // Number of pages to show
             marginPagesDisplayed={1} // Number of margin pages
