@@ -10,7 +10,7 @@ import {
 } from "./utils/toastConfig.jsx";
 
 const Signup = () => {
-  const navigate = useNavigate(); // Hook to navigate to another page
+  const navigate = useNavigate(); // Hook to navigate to another pages
 
   // Check if the user is already logged in
   useEffect(() => {
