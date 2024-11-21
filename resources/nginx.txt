@@ -107,6 +107,7 @@ sudo chmod -R 755 /var/www/sliprecs/backend/uploads
 sudo chown -R www-data:www-data /var/www/sliprecs/backend/uploads
 
 sudo chmod -R 755 /var/www/sliprecs/backend/.env.production
+
 sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env.production
 
 sudo chmod -R 755 /var/www/sliprecs/backend/.env
