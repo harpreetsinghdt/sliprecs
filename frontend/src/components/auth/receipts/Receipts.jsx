@@ -7,6 +7,7 @@ import ImageDownloader from "../../utils/ImageDownloader";
 
 const Receipts = () => {
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  console.log(backendUrl);
   const [data, setData] = useState([]);
 
   const [isViewerOpen, setIsViewerOpen] = useState(false);
