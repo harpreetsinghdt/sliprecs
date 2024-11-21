@@ -63,6 +63,9 @@ sudo -u <webhook_user> ssh -T git@github.com
 sudo -u www-data ssh -T git@github.com
 sudo -u root ssh -T git@github.com
 
+ssh -T git@github.com
+
+
 
 sudo cp /root/.ssh/id_ed25519 /var/www/.ssh/
 sudo chown -R www-data:www-data /var/www/.ssh
