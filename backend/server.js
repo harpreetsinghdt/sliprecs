@@ -6,10 +6,27 @@ const path = require("path");
 const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
 
+const winston = require("winston");
+
+// Create a logger instance
+const logger = winston.createLogger({
+  level: "info",
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: "logs/combined.log" }),
+  ],
+});
+
 // Load environment variables from .env file
 dotenv.config();
 const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
+
+logger.info(envFile);
 
 // Initialize Express app
 const app = express();
@@ -24,6 +41,8 @@ app.use(
 
 app.use(express.json()); // For parsing application/json
 console.log("path ",path.join(__dirname, "uploads"));
+
+logger.info(path.join(__dirname, "uploads"));
 
 // Serve static files from the `uploads` directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
