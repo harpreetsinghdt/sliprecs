@@ -6,13 +6,11 @@ const path = require("path");
 const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
 
-LOGFILE = "/var/www/sliprecs/server.log";
-
 // Load environment variables from .env file
 dotenv.config();
 const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
-"$(date) - Starting webhook deployment..." >> "$LOGFILE"
+
 // Initialize Express app
 const app = express();
 
@@ -26,7 +24,7 @@ app.use(
 
 app.use(express.json()); // For parsing application/json
 console.log("path ",path.join(__dirname, "uploads"));
-"$(date) path.join(__dirname, 'uploads') - Starting webhook deployment..." >> "$LOGFILE";
+
 // Serve static files from the `uploads` directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
