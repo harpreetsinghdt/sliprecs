@@ -85,3 +85,14 @@ pm2 stop webhook-flask
 pm2 restart webhook-flask
 
 sudo cat /etc/nginx/sites-available/default
+
+
+ps aux | grep 'vite'
+
+ps aux | grep 'node'
+
+cat /var/www/sliprecs/frontend/.env
+cat /var/www/sliprecs/backend/.env
+
+
+curl http://localhost:5001
