@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 
 // Define an example GET route
 router.get("/", (req, res) => {
-  res.json({ message: "Welcome to the nodejs + express backend API.21 nov" });
+  res.json({ message: "Welcome to the nodejs + express backend API.21 nov 2024" });
 });
 
 // Define an example GET route
