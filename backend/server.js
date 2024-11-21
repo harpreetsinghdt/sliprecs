@@ -23,7 +23,8 @@ const logger = winston.createLogger({
 
 // Load environment variables from .env file
 dotenv.config();
-const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
+const envFile =
+  process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
 
 // logger.info(envFile);
@@ -53,10 +54,8 @@ app.options("/api/*", (req, res) => {
   res.sendStatus(204);
 });
 
-
 // Set up routes
 app.use("/api", apiRoutes);
-
 
 // Database connection (MongoDB example)
 mongoose
