@@ -41,6 +41,7 @@ app.use(
 
 app.use(express.json()); // For parsing application/json
 logger.info("logger works");
+logger.info("logger works 2");
 logger.info(path.join(__dirname, "uploads"));
 
 // Serve static files from the `uploads` directory
