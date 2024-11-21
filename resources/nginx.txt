@@ -17,6 +17,11 @@ server {
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }
+
+    location /uploads/ {
+        root /var/www/sliprecs/backend/uploads; # Adjust the path to match your uploads directory
+    }
+
 }
 
 sudo chmod -R 755 /var/www/sliprecs/frontend/dist
@@ -25,6 +30,7 @@ sudo chown -R www-data:www-data /var/www/sliprecs/frontend/dist
 sudo chmod -R 755 /var/www/sliprecs/pm2.config.json
 
 sudo nano /etc/nginx/sites-available/default
+sudo systemctl restart nginx
 
 sudo nginx -t
 sudo systemctl reload nginx
@@ -115,6 +121,8 @@ sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env.production
 sudo chmod -R 755 /var/www/sliprecs/backend/.env
 sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env
 
+sudo chmod -R 755 1732219459916.jpeg
+sudo chown -R www-data:www-data 1732219459916.jpeg
 
 rm -rf /var/www/sliprecs/backend/uploads/receipts/*
 rm -ri /var/www/sliprecs/backend/uploads/receipts/* y or n 
