@@ -80,5 +80,8 @@ curl -X POST -H "Content-Type: application/json" -d '{"test": "data"}' http://sl
 
 sudo kill -9 11494  # Replace 1234 with the actual PID
 
+pm2 list
 pm2 stop webhook-flask
 pm2 restart webhook-flask
+
+sudo cat /etc/nginx/sites-available/default
