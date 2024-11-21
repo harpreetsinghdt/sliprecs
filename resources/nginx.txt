@@ -111,3 +111,5 @@ sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env.production
 
 rm -rf /var/www/sliprecs/backend/uploads/receipts/*
 rm -ri /var/www/sliprecs/backend/uploads/receipts/* y or n 
+
+cat webhook.py
