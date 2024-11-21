@@ -85,6 +85,10 @@ pm2 stop webhook-flask
 pm2 restart webhook-flask
 pm2 delete webhook-flask
 
+pm2 show sliprecs-backend
+
+pm2 examples
+
 sudo cat /etc/nginx/sites-available/default
 
 
