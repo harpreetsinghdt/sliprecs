@@ -21,7 +21,7 @@ const Header = () => {
       <nav className="navbar bg-body-tertiary fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            FaamBill
+            sliprecs
           </a>
           <button
             className="navbar-toggler"
@@ -37,7 +37,7 @@ const Header = () => {
 
           <Offcanvas show={show} onHide={handleClose} placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>FaamBill </Offcanvas.Title>
+              <Offcanvas.Title>sliprecs</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="flex-column">
