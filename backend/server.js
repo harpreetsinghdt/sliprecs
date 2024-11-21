@@ -7,12 +7,7 @@ const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
 
 // Load environment variables from .env file
-console.log(process.env.NODE_ENV);
-const envFile =
-process.env.NODE_ENV === "production" ? ".env.production" : ".env";
-dotenv.config({ path: envFile });
-
-console.log(`Using ${envFile}`);
+dotenv.config();
 
 // Initialize Express app
 const app = express();
