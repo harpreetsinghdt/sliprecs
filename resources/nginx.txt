@@ -19,7 +19,7 @@ server {
     }
 
     location /uploads/ {
-        root /var/www/sliprecs/backend/uploads; # Adjust the path to match your uploads directory
+        root /var/www/sliprecs/backend/uploads;
     }
 
 }
