@@ -86,6 +86,7 @@ pm2 restart webhook-flask
 pm2 delete webhook-flask
 
 pm2 show sliprecs-backend
+NODE_ENV=production pm2 restart sliprecs-backend
 
 pm2 examples
 
