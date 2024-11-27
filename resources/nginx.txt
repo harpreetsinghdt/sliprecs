@@ -162,3 +162,8 @@ sudo netstat -tuln | grep 27017
 
 
 npm install -g npm@10.9.1
+
+npm install --force
+
+nvm install --lts
+nvm use --lts
