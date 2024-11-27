@@ -82,6 +82,11 @@ sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
 sudo -u www-data ssh -T git@github.com
 sudo -u www-data git pull origin main
 
+
+git config --global --add safe.directory /var/www/sliprecs
+
+
+
 sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
 
 npm run dev
