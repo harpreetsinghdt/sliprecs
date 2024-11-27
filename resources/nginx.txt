@@ -75,7 +75,7 @@ sudo chmod 600 /var/www/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
 ssh-add /var/www/.ssh/id_ed25519
 
-
+bgfg
 
 sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
 
