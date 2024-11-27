@@ -100,9 +100,6 @@ sudo -u www-data git config --global --get-all safe.directory
 
 sudo -u www-data git config --list --show-origin
 
-
-
-
 sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
 
 npm run dev
@@ -114,9 +111,13 @@ pm2 list
 pm2 stop webhook-flask
 pm2 restart webhook-flask
 pm2 delete webhook-flask
+pm2 show webhook-flask
 
 pm2 show sliprecs-backend
 pm2 restart sliprecs-backend
+
+pm2 start sliprecs/backend/server.js --name sliprecs-backend
+pm2 start -f sliprecs/backend/server.js --name sliprecs-backend
 
 NODE_ENV=production pm2 restart sliprecs-backend
 
@@ -160,3 +161,4 @@ sudo netstat -tuln | grep 27017
 sudo netstat -tuln | grep 27017
 
 
+npm install -g npm@10.9.1
