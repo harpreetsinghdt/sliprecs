@@ -37,7 +37,7 @@ const Header = () => {
 
           <Offcanvas show={show} onHide={handleClose} placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title>sliprecs h9 g</Offcanvas.Title>
+              <Offcanvas.Title>sliprecs h9 g df</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="flex-column">
