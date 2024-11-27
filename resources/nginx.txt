@@ -83,7 +83,7 @@ sudo chown -R www-data:www-data /var/www
 
 systemctl status webhook-handler.sh
 
-sfsfs
+34
 
 sudo -u root git pull origin main
 
