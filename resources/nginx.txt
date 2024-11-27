@@ -167,3 +167,16 @@ npm install --force
 
 nvm install --lts
 nvm use --lts
+
+
+/root/.nvm/versions/node/v22.11.0/bin/node
+/usr/bin/nodejs
+sudo apt remove nodejs
+sudo apt purge nodejs
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # Load nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # Load nvm bash_completion
+
+nvm ls
