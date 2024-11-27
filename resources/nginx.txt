@@ -180,3 +180,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # Load nvm bash_completion
 
 nvm ls
+
+bash -x webhook-handler.sh
+sudo chown -R www-data:www-data /var/www/sliprecs
