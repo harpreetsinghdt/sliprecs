@@ -26,7 +26,9 @@ const envFile =
   process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
 
+// write log to /var/www/logs/combined.log
 logger.info(envFile);
+
 
 // Initialize Express app
 const app = express();
