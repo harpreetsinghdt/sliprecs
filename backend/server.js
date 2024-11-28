@@ -28,6 +28,7 @@ const envFile =
   dotenv.config({ path: envFile });
 
 // write log to /var/www/sliprecs/logs/server_js.log
+logger.info("envFile =");
 logger.info(envFile);
 
 // Initialize Express app
@@ -43,6 +44,7 @@ app.use(
 
 app.use(express.json()); // For parsing application/json
 
+logger.info("__dirname");
 logger.info(path.join(__dirname, "uploads"));
 
 // Serve static files from the `uploads` directory
