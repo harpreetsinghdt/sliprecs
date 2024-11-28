@@ -75,21 +75,16 @@ sudo chmod 600 /var/www/.ssh/id_ed25519
 eval "$(ssh-agent -s)"
 ssh-add /var/www/.ssh/id_ed25519
 
-bgfg
-
 sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
 
 sudo chown -R www-data:www-data /var/www
 
 systemctl status webhook-handler.sh
 
-34
-
 sudo -u root git pull origin main
 
 sudo -u www-data ssh -T git@github.com
 sudo -u www-data git pull origin main
-gddgdg
 
 git config --global --add safe.directory /var/www/sliprecs
 
@@ -97,17 +92,16 @@ sudo -u www-data git config --global --add safe.directory /var/www/sliprecs
 
 sudo -u www-data git config --global --get-all safe.directory
 
-
 sudo -u www-data git config --list --show-origin
 
 sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
 
 npm run dev
 
-
 sudo kill -9 11494  # Replace 1234 with the actual PID
 
 pm2 list
+pm2 logs sliprecs-backend
 pm2 stop webhook-flask
 pm2 restart webhook-flask
 pm2 delete webhook-flask
@@ -125,14 +119,12 @@ pm2 examples
 
 sudo cat /etc/nginx/sites-available/default
 
-
 ps aux | grep 'vite'
 
 ps aux | grep 'node'
 
 cat /var/www/sliprecs/frontend/.env
 cat /var/www/sliprecs/backend/.env
-
 
 curl http://localhost:5001
 
@@ -158,8 +150,6 @@ cat webhook.py
 /* mongodb production */
 sudo systemctl status mongod
 sudo netstat -tuln | grep 27017
-sudo netstat -tuln | grep 27017
-
 
 npm install -g npm@10.9.1
 

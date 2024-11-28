@@ -5,7 +5,6 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
-
 const winston = require("winston");
 
 // Create a logger instance
@@ -27,7 +26,7 @@ const envFile =
   process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 dotenv.config({ path: envFile });
 
-// logger.info(envFile);
+logger.info(envFile);
 
 // Initialize Express app
 const app = express();
