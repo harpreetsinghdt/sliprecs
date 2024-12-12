@@ -28,6 +28,7 @@ const envFile =
 dotenv.config({ path: envFile });
 
 // write log to /var/www/sliprecs/logs/server_js.log
+// update test to push
 logger.info("envFile =");
 logger.info(envFile);
 
