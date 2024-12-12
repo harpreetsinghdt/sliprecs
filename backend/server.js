@@ -64,11 +64,18 @@ app.use("/api", apiRoutes);
 // Database connection (MongoDB example)
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.log("Error connecting to MongoDB:", error));
+  .then(() => {
+    console.log("MongoDB connected");
+    logger.info("MongoDB connected");
+  })
+  .catch((error) => {
+    console.log("Error connecting to MongoDB:", error);
+    logger.info("Error connecting to MongoDB:", error);
+  });
 
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on path http://localhost:${PORT}/api`);
+  logger.info(`Server is running on path http://localhost:${PORT}/api`);
 });
