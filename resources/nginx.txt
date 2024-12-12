@@ -47,7 +47,9 @@ sudo ufw status
 sudo ufw allow 5001
 
 
-sudo chown -R www-data:www-data /var/www/sliprecs  
+sudo chown -R www-data:www-data /var/www/html
+
+sudo chown -R www-data:www-data /var/www/sliprecs
 # Adjust user/group based on the server user running Flask (e.g., 'www-data')
 
 sudo chmod -R 755 /var/www/sliprecs  
