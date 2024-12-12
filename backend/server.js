@@ -16,7 +16,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: "logs/server_js.log" }),
+    new winston.transports.File({ filename: "logs/combined.log" }),
   ],
 });
 
@@ -25,7 +25,7 @@ dotenv.config();
 const envFile =
   process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 
-  dotenv.config({ path: envFile });
+dotenv.config({ path: envFile });
 
 // write log to /var/www/sliprecs/logs/server_js.log
 logger.info("envFile =");

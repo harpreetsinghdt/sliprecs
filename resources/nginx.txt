@@ -172,3 +172,25 @@ nvm ls
 
 bash -x webhook-handler.sh
 sudo chown -R www-data:www-data /var/www/sliprecs
+
+
+// Log into the MongoDB shell:
+mongosh
+show dbs
+use your_database_name
+show collections
+db.collection_name.find()
+db.users.find()
+db.collection_name.find().pretty()
+db.users.find().pretty()
+db.receipts.find().pretty()
+
+db.collection_name.countDocuments()
+db.receipts.countDocuments()
+
+db.collection_name.find({}, { field1: 1, field2: 1 })
+db.collection_name.find({ field: "value" }).pretty()
+db.collection_name.find().limit(10).pretty()
+db.collection_name.find().sort({ field: 1 }).pretty()
+
+
