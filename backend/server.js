@@ -58,8 +58,7 @@ app.options("/api/*", (req, res) => {
 // Set up routes
 app.use("/api", apiRoutes);
 
-// Database connection (MongoDB example)
-// Database connection (MongoDB example)
+// Database connection (MongoDB example) below
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
