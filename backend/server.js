@@ -16,7 +16,7 @@ const logger = winston.createLogger({
   ),
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: "sliprecs/combined.log" }),
+    new winston.transports.File({ filename: "/sliprecs/combined.log" }),
   ],
 });
 
@@ -27,9 +27,7 @@ const envFile =
 
 dotenv.config({ path: envFile });
 
-// write log to /var/www/sliprecs/logs/server_js.log
-// update test to push
-logger.info("envFile =");
+// write log to /var/www/sliprecs/combined.log
 logger.info(envFile);
 
 // Initialize Express app
@@ -45,7 +43,6 @@ app.use(
 
 app.use(express.json()); // For parsing application/json
 
-logger.info("__dirname");
 logger.info(path.join(__dirname, "uploads"));
 
 // Serve static files from the `uploads` directory
@@ -61,6 +58,7 @@ app.options("/api/*", (req, res) => {
 // Set up routes
 app.use("/api", apiRoutes);
 
+// Database connection (MongoDB example)
 // Database connection (MongoDB example)
 mongoose
   .connect(process.env.MONGO_URI)
