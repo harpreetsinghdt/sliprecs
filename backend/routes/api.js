@@ -23,7 +23,9 @@ const upload = multer({ storage: storage });
 
 // Define an example GET route
 router.get("/", (req, res) => {
-  res.json({ message: "Welcome to the nodejs + express backend API. fdsdfrs21 nov 2024" });
+  res.json({
+    message: "Welcome to the nodejs + express backend API. fdsdfrs21 nov 2024",
+  });
 });
 
 // Define an example GET route
@@ -40,7 +42,9 @@ router.get("/users", async (req, res) => {
       .json({ status: "success", message: "All data fetched.", data });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ status: "error", message: "Server error", "Error":error });
+    res
+      .status(500)
+      .json({ status: "error", message: "Server error", Error: error });
   }
 });
 
