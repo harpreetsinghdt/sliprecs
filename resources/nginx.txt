@@ -106,9 +106,7 @@ git config --global --add safe.directory /var/www/sliprecs
 sudo -u www-data git config --global --add safe.directory /var/www/sliprecs
 
 sudo -u www-data git config --global --get-all safe.directory
-
 sudo -u www-data git config --list --show-origin
-
 sudo -u www-data bash /var/www/sliprecs/deploy.sh
 
 npm run dev
