@@ -91,8 +91,6 @@ systemctl status deploy.sh
 
 sudo -u root git pull origin main
 
-sudo -u www-data ssh -T git@github.com
-
 sudo -u www-data git status
 sudo -u www-data git pull origin main
 sudo -u www-data git pull origin main --verbose
