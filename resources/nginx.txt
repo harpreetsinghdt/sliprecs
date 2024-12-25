@@ -52,8 +52,8 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chown -R www-data:www-data /var/www/sliprecs
 # Adjust user/group based on the server user running Flask (e.g., 'www-data')
 
+// Ensure files are executable
 sudo chmod -R 755 /var/www/sliprecs
-# Ensure files are executable
 
 cat pm2.config.json
 cat webhook.py
