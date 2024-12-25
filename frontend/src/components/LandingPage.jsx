@@ -11,8 +11,8 @@ const LandingPage = () => {
           <p className="lead">
             Effortlessly save and organize your receipts in one place!
           </p>
-          <a href="#cta" className="cta-btn">
-            Get Started ssdf ffsdfs
+          <a href="#cta" className="cta-btn"> 
+            Get Started ssdf gfhf dsf
           </a>
         </div>
       </section>
