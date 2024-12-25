@@ -12,7 +12,7 @@ const LandingPage = () => {
             Effortlessly save and organize your receipts in one place!
           </p>
           <a href="#cta" className="cta-btn"> 
-            Get Starte dfsd sdfd fgffs
+            Get Starte dfsd sdfd fgffs fgsdfsdf sdfsd fs
           </a> 
         </div>
       </section>
