@@ -60,6 +60,10 @@ cat pm2.config.json
 cat webhook.py
 cat webhook-handler.sh
 
+nano pm2.config.json
+nano webhook.py
+nano webhook-handler.sh
+
 
 sudo -u <webhook_user> ssh -T git@github.com
 sudo -u www-data ssh -T git@github.com
