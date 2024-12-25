@@ -52,17 +52,16 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chown -R www-data:www-data /var/www/sliprecs
 # Adjust user/group based on the server user running Flask (e.g., 'www-data')
 
-sudo chmod -R 755 /var/www/sliprecs  
+sudo chmod -R 755 /var/www/sliprecs
 # Ensure files are executable
 
- gdgd
 cat pm2.config.json
 cat webhook.py
-cat webhook-handler.sh
+cat deploy.sh
 
 nano pm2.config.json
 nano webhook.py
-nano webhook-handler.sh
+nano deploy.sh
 
 
 // check user permissions
@@ -88,11 +87,11 @@ sudo -u www-data ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com"
 
 
 
-sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
+sudo -u www-data bash /var/www/sliprecs/deploy.sh
 
 sudo chown -R www-data:www-data /var/www
 
-systemctl status webhook-handler.sh
+systemctl status deploy.sh
 
 sudo -u root git pull origin main
 
@@ -107,7 +106,7 @@ sudo -u www-data git config --global --get-all safe.directory
 
 sudo -u www-data git config --list --show-origin
 
-sudo -u www-data bash /var/www/sliprecs/webhook-handler.sh
+sudo -u www-data bash /var/www/sliprecs/deploy.sh
 
 npm run dev
 
@@ -183,7 +182,7 @@ export NVM_DIR="$HOME/.nvm"
 
 nvm ls
 
-bash -x webhook-handler.sh
+bash -x deploy.sh
 sudo chown -R www-data:www-data /var/www/sliprecs
 
 
