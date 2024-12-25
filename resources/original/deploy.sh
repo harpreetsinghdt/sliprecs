@@ -28,7 +28,8 @@ log "Git pull completed"
 # FRONTEND TASKS
 log "Starting frontend deployment tasks..."
 cd /var/www/sliprecs/frontend || { log "Frontend directory not found"; exit 1; }
-npm install || { log "Frontend npm install failed"; exit 1; }
+#npm install || { log "Frontend npm install failed"; exit 1; }
+npm install --verbose || { log "Frontend npm install failed"; exit 1; }
 log "Frontend dependencies installed"
 
 npm run build || { log "Frontend build failed"; exit 1; }
