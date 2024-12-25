@@ -35,13 +35,12 @@ echo "$(date) - Webhook deployment completed successfully 5" >> "$LOGFILE"
 
 # Build the frontend
 npm run build
-
+ 
 echo "$(date) - Webhook deployment completed successfully 6" >> "$LOGFILE"
 
 # Copy the build to the Nginx served directory (if applicable)
 #cp -r /var/www/sliprecs/frontend/dist/* /var/www/html/
 #echo "$(date) - Webhook deployment completed successfully 7" >> "$LOGFILE"
-
 # Install dependencies (if needed)
 cd /var/www/sliprecs/backend # Go to backend directory
 
