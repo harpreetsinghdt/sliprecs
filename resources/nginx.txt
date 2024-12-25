@@ -92,7 +92,14 @@ systemctl status deploy.sh
 sudo -u root git pull origin main
 
 sudo -u www-data ssh -T git@github.com
+
+sudo -u www-data git status
 sudo -u www-data git pull origin main
+sudo -u www-data git pull origin main --verbose
+
+// This will show if there is any Git process running.
+ps aux | grep git
+
 
 git config --global --add safe.directory /var/www/sliprecs
 
