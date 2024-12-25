@@ -41,9 +41,7 @@ sudo kill -9 4147  # Replace 12345 with the actual PID
 curl -X POST http://127.0.0.1:5001/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
 
 sudo netstat -tuln | grep 5001
-
 sudo ufw status
-
 sudo ufw allow 5001
 
 
@@ -85,8 +83,6 @@ ssh-add /var/www/.ssh/id_ed25519
 
 sudo -u www-data ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com"
 
-
-
 sudo -u www-data bash /var/www/sliprecs/deploy.sh
 
 sudo chown -R www-data:www-data /var/www
@@ -112,6 +108,7 @@ npm run dev
 
 sudo kill -9 11494  # Replace 1234 with the actual PID
 
+// Process manager 
 pm2 list
 pm2 logs sliprecs-backend
 pm2 stop webhook-flask
