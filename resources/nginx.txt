@@ -24,6 +24,14 @@ server {
 
 }
 
+
+sudo nano /etc/nginx/sites-available/sliprecs
+
+sudo ln -s /etc/nginx/sites-available/sliprecs /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+
+
 sudo chmod -R 755 /var/www/sliprecs/frontend/dist
 sudo chown -R www-data:www-data /var/www/sliprecs/frontend/dist
 
@@ -159,8 +167,6 @@ sudo chown -R www-data:www-data 1732219459916.jpeg
 
 rm -rf /var/www/sliprecs/backend/uploads/receipts/*
 rm -ri /var/www/sliprecs/backend/uploads/receipts/* y or n 
-
-cat webhook.py
 
 
 /* mongodb production */
