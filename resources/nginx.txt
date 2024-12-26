@@ -71,11 +71,14 @@ nano deploy.sh
 
 
 // check user permissions
+ssh -T git@github.com
 sudo -u <webhook_user> ssh -T git@github.com
 sudo -u www-data ssh -T git@github.com
 sudo -u root ssh -T git@github.com
 
-ssh -T git@github.com
+
+sudo -u www-data ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com" -f /var/www/.ssh/id_rsa
+
 
 // check port used
 sudo netstat -tuln
