@@ -25,10 +25,15 @@ ps aux | grep sliprecs-backend
 curl http://127.0.0.1:<backend_port>
 curl http://127.0.0.1:5000
 
-
-
-
+// Check all running port 
+sudo netstat -tuln
 sudo kill -9 4147  # Replace 12345 with the actual PID
+
+// Check if port 3000 is being used by Nginx:
+sudo ss -tuln | grep 3000
+sudo netstat -tulnp | grep 3000
+
+
 
 curl -X POST http://127.0.0.1:5001/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
 
