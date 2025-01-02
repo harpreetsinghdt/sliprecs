@@ -1,3 +1,7 @@
+// check ubuntu version 
+lsb_release -a
+
+
 
 sudo nano /etc/nginx/sites-available/sliprecs
 
@@ -210,3 +214,31 @@ db.collection_name.find({}, { field1: 1, field2: 1 })
 db.collection_name.find({ field: "value" }).pretty()
 db.collection_name.find().limit(10).pretty()
 db.collection_name.find().sort({ field: 1 }).pretty()
+
+
+// To install MongoDB on a Hostinger VPS via SSH, follow these steps:
+https://www.hostinger.com/tutorials/how-to-install-mongodb-on-ubuntu/
+
+sudo apt-get install -y gnupg curl
+
+curl -fsSL https://pgp.mongodb.com/server-7.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg --dearmor
+
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+
+sudo apt update
+
+sudo apt install -y mongodb-org
+
+
+sudo systemctl start mongod
+// After the installation, run MongoDB Community Edition by entering the following:
+sudo systemctl start mongod
+
+// The systemctl command is essential for MongoDB service management. For example, if you encounter an error, run the following to reboot running services and try starting the DBMS again:
+sudo systemctl daemon-reload
+
+// To find out whether MongoDB database server loaded properly, check its status with this command:
+sudo systemctl status mongod
+
+// By default, the service doesn’t start at boot. To automatically load it at startup, enable MongoDB using the following command. :
+sudo systemctl enable mongod
