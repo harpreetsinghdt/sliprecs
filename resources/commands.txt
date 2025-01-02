@@ -31,6 +31,7 @@ sudo chown -R www-data:www-data /var/www/html
 
 // Adjust user/group based on the server user running Flask (e.g., 'www-data')
 sudo chown -R www-data:www-data /var/www/sliprecs
+sudo chown -R root /var/www/sliprecs
 
 // Ensure files are executable
 sudo chmod -R 755 /var/www/sliprecs
