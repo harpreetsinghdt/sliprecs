@@ -36,7 +36,6 @@ sudo netstat -tulnp | grep 3000
 
 
 curl -X POST http://127.0.0.1:5000/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
-cannot POST /webhook
 
 sudo netstat -tuln | grep 5000
 sudo ufw status
@@ -131,6 +130,8 @@ pm2 restart sliprecs-backend
 
 pm2 start sliprecs/backend/server.js --name sliprecs-backend
 pm2 start -f sliprecs/backend/server.js --name sliprecs-backend
+
+pm2 start /sliprecs/webhook.js --name git-webhook
 
 NODE_ENV=production pm2 restart sliprecs-backend
 
