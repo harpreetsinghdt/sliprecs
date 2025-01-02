@@ -1,0 +1,194 @@
+
+sudo nano /etc/nginx/sites-available/sliprecs
+
+sudo ln -s /etc/nginx/sites-available/sliprecs /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+
+
+sudo chmod -R 755 /var/www/sliprecs/frontend/dist
+sudo chown -R www-data:www-data /var/www/sliprecs/frontend/dist
+
+sudo chmod -R 755 /var/www/sliprecs/pm2.config.json
+
+sudo nano /etc/nginx/sites-available/default
+sudo systemctl restart nginx
+
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+sudo kill -9 4147  # Replace 12345 with the actual PID
+
+curl -X POST http://127.0.0.1:5001/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
+
+sudo netstat -tuln | grep 5001
+sudo ufw status
+sudo ufw allow 5001
+
+
+sudo chown -R www-data:www-data /var/www/html
+
+// Adjust user/group based on the server user running Flask (e.g., 'www-data')
+sudo chown -R www-data:www-data /var/www/sliprecs
+
+// Ensure files are executable
+sudo chmod -R 755 /var/www/sliprecs
+
+cat pm2.config.json
+cat webhook.py
+cat deploy.sh
+
+nano pm2.config.json
+nano webhook.py
+nano deploy.sh
+
+
+// check user permissions
+ssh -T git@github.com
+sudo -u <webhook_user> ssh -T git@github.com
+sudo -u www-data ssh -T git@github.com
+sudo -u root ssh -T git@github.com
+
+
+sudo -u www-data ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com" -f /var/www/.ssh/id_rsa
+
+
+// check port used
+sudo netstat -tuln
+
+
+sudo cp /root/.ssh/id_ed25519 /var/www/.ssh/
+sudo chown -R www-data:www-data /var/www/.ssh
+sudo chmod 600 /var/www/.ssh/id_ed25519
+
+
+eval "$(ssh-agent -s)"
+ssh-add /var/www/.ssh/id_ed25519
+
+sudo -u www-data ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com"
+
+sudo -u www-data bash /var/www/sliprecs/deploy.sh
+
+sudo chown -R www-data:www-data /var/www
+
+systemctl status deploy.sh
+
+sudo -u root git pull origin main
+
+sudo -u www-data git status
+sudo -u www-data git pull origin main
+sudo -u www-data git pull origin main --verbose
+
+
+sudo -u www-data npm install --verbose
+sudo -u www-data pm2 restart sliprecs-backend
+
+
+// This will show if there is any Git process running.
+ps aux | grep git
+
+
+git config --global --add safe.directory /var/www/sliprecs
+
+sudo -u www-data git config --global --add safe.directory /var/www/sliprecs
+
+sudo -u www-data git config --global --get-all safe.directory
+sudo -u www-data git config --list --show-origin
+sudo -u www-data bash /var/www/sliprecs/deploy.sh
+
+npm run dev
+
+sudo kill -9 11494  # Replace 1234 with the actual PID
+
+// Process manager 
+pm2 list
+pm2 logs sliprecs-backend
+pm2 stop webhook-flask
+pm2 restart webhook-flask
+pm2 delete webhook-flask
+pm2 show webhook-flask
+
+pm2 show sliprecs-backend
+pm2 restart sliprecs-backend
+
+pm2 start sliprecs/backend/server.js --name sliprecs-backend
+pm2 start -f sliprecs/backend/server.js --name sliprecs-backend
+
+NODE_ENV=production pm2 restart sliprecs-backend
+
+pm2 examples
+
+sudo cat /etc/nginx/sites-available/default
+
+ps aux | grep 'vite'
+
+ps aux | grep 'node'
+
+cat /var/www/sliprecs/frontend/.env
+cat /var/www/sliprecs/backend/.env
+
+curl http://localhost:5001
+
+sudo chmod -R 755 /var/www/sliprecs/backend/uploads
+sudo chown -R www-data:www-data /var/www/sliprecs/backend/uploads
+
+sudo chmod -R 755 /var/www/sliprecs/backend/.env.production
+sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env.production
+
+sudo chmod -R 755 /var/www/sliprecs/backend/.env
+sudo chown -R www-data:www-data /var/www/sliprecs/backend/.env
+
+sudo chmod -R 755 1732219459916.jpeg
+sudo chown -R www-data:www-data 1732219459916.jpeg
+
+rm -rf /var/www/sliprecs/backend/uploads/receipts/*
+rm -ri /var/www/sliprecs/backend/uploads/receipts/* y or n 
+
+
+/* mongodb production */
+sudo systemctl status mongod
+sudo netstat -tuln | grep 27017
+
+npm install -g npm@10.9.1
+
+npm install --force
+
+nvm install --lts
+nvm use --lts
+
+
+/root/.nvm/versions/node/v22.11.0/bin/node
+/usr/bin/nodejs
+sudo apt remove nodejs
+sudo apt purge nodejs
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # Load nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # Load nvm bash_completion
+
+nvm ls
+
+bash -x deploy.sh
+sudo chown -R www-data:www-data /var/www/sliprecs
+
+
+// Log into the MongoDB shell:
+mongosh
+show dbs
+use your_database_name
+show collections
+db.collection_name.find()
+db.users.find()
+db.collection_name.find().pretty()
+db.users.find().pretty()
+db.receipts.find().pretty()
+
+db.collection_name.countDocuments()
+db.receipts.countDocuments()
+
+db.collection_name.find({}, { field1: 1, field2: 1 })
+db.collection_name.find({ field: "value" }).pretty()
+db.collection_name.find().limit(10).pretty()
+db.collection_name.find().sort({ field: 1 }).pretty()
