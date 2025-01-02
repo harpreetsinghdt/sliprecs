@@ -17,6 +17,16 @@ sudo systemctl restart nginx
 sudo nginx -t
 sudo systemctl reload nginx
 
+// Check if the backend is running
+ps aux | grep <your_backend_process>
+ps aux | grep sliprecs-backend
+
+// Test backend connectivity from the server
+curl http://127.0.0.1:<backend_port>
+curl http://127.0.0.1:5000
+
+
+
 
 sudo kill -9 4147  # Replace 12345 with the actual PID
 
