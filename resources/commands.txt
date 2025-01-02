@@ -35,11 +35,11 @@ sudo netstat -tulnp | grep 3000
 
 
 
-curl -X POST http://127.0.0.1:5001/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
+curl -X POST http://127.0.0.1:5000/webhook -d '{"test":"data"}' -H "Content-Type: application/json"
 
-sudo netstat -tuln | grep 5001
+sudo netstat -tuln | grep 5000
 sudo ufw status
-sudo ufw allow 5001
+sudo ufw allow 5000
 
 
 sudo chown -R www-data:www-data /var/www/html

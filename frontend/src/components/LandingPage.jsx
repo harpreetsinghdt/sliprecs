@@ -13,7 +13,7 @@ const LandingPage = () => {
           </p>
           <a href="#cta" className="cta-btn"> 
             Lets Get Started Happy New Year
-            Have a successful year ahead 2025 123
+            Have a successful year ahead 2025 1234
           </a> 
         </div>
       </section>
