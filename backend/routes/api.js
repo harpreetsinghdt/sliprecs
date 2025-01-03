@@ -9,20 +9,7 @@ const path = require("path");
 const User = require("../models/User");
 const Receipt = require("../models/Receipt");
 
-const winston = require("winston");
-
-// Create a logger instance
-const logger = winston.createLogger({
-  level: "info",
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.json()
-  ),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: "logs/combined.log" }),
-  ],
-});
+const logger = require("../winstonLogger.js");
 
 // Configure storage for uploaded files
 const storage = multer.diskStorage({

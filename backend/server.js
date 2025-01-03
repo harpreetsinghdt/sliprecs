@@ -5,20 +5,7 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const apiRoutes = require("./routes/api");
-const winston = require("winston");
-
-// Create a logger instance
-const logger = winston.createLogger({
-  level: "info",
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.json()
-  ),
-  transports: [
-    new winston.transports.Console(),
-    new winston.transports.File({ filename: "logs/combined.log" }),
-  ],
-});
+const logger = require("./winstonLogger.js");
 
 // Load environment variables from .env file below
 //dotenv.config();
