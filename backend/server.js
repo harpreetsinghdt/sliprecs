@@ -22,6 +22,9 @@ const logger = winston.createLogger({
 
 // Load environment variables from .env file below
 dotenv.config();
+
+logger.info(process.env.NODE_ENV);
+
 const envFile =
   process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 
