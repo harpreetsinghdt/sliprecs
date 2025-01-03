@@ -242,3 +242,5 @@ sudo systemctl status mongod
 
 // By default, the service doesn’t start at boot. To automatically load it at startup, enable MongoDB using the following command. :
 sudo systemctl enable mongod
+
+sudo nano /etc/mongod.conf
