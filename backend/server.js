@@ -23,7 +23,7 @@ const logger = winston.createLogger({
 // Load environment variables from .env file below
 //dotenv.config();
 
-logger.info("Current Environment:", process.env.NODE_ENV);
+logger.info(process.env.NODE_ENV);
 console.log("Current Environment:", process.env.NODE_ENV);
 
 
