@@ -74,10 +74,6 @@ sudo -u root ssh -T git@github.com
 sudo -u www-data ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com" -f /var/www/.ssh/id_rsa
 
 
-// check port used
-sudo netstat -tuln
-
-
 sudo cp /root/.ssh/id_ed25519 /var/www/.ssh/
 sudo chown -R www-data:www-data /var/www/.ssh
 sudo chmod 600 /var/www/.ssh/id_ed25519
