@@ -25,13 +25,20 @@ dotenv.config();
 
 logger.info(process.env.NODE_ENV);
 
-const envFile =
-  process.env.NODE_ENV === "production" ? ".env.production" : ".env";
+// const envFile = process.env.NODE_ENV === "production" ? ".env.production" : ".env";
 
-dotenv.config({ path: envFile });
+// Load environment variables based on NODE_ENV
+if (process.env.NODE_ENV === 'production') {
+  dotenv.config({ path: ".env.production" });  // For production
+  logger.info("production");
+} else {
+  dotenv.config();  // For development, it loads .env file by default
+  logger.info("development");
+}
 
 // write log to /var/www/sliprecs/combined.log
-logger.info(envFile);
+//logger.info(envFile);
+//dotenv.config({ path: envFile });
 
 // Initialize Express app
 const app = express();
