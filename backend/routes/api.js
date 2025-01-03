@@ -160,7 +160,7 @@ router.post("/login", async (req, res) => {
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ status: "error", message: "Server error" });
+    res.status(500).json({ status: "error", message: "Server error", error });
   }
 });
 
