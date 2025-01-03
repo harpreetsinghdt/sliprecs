@@ -122,7 +122,7 @@ router.post("/signup", async (req, res) => {
 // Login POST route
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-
+logger.info(req.body);
   if (!email || !password) {
     return res
       .status(400)
