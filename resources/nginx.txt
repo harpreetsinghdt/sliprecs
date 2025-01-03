@@ -2,9 +2,19 @@ server {
     listen 80;
     server_name sliprecs.com;
 
+    # github webhook
+    location /webhook {
+        proxy_pass http://localhost:3000/webhook;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+    
     # React App
     location / {
-        root /var/www/sliprecs/frontend/build;
+        root /var/www/sliprecs/frontend/dist;
         try_files $uri /index.html;
     }
 
