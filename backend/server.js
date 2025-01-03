@@ -64,6 +64,7 @@ app.use("/api", apiRoutes);
 // Database connection (MongoDB example) below
 
 logger.info(process.env.MONGO_URI);
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
