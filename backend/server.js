@@ -72,6 +72,7 @@ app.use("/api", apiRoutes);
 
 // Database connection (MongoDB example) below
 
+console.log("MONGO_URI:", process.env.MONGO_URI);
 logger.info(process.env.MONGO_URI);
 
 mongoose
