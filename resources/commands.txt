@@ -132,6 +132,9 @@ pm2 restart sliprecs-backend
 pm2 start sliprecs/backend/server.js --name sliprecs-backend
 pm2 start -f sliprecs/backend/server.js --name sliprecs-backend
 
+pm2 start backend/server.js --name sliprecs-backend --env production
+
+
 pm2 start /sliprecs/webhook.js --name git-webhook
 
 NODE_ENV=production pm2 restart sliprecs-backend

@@ -30,10 +30,10 @@ logger.info(process.env.NODE_ENV);
 // Load environment variables based on NODE_ENV
 if (process.env.NODE_ENV === 'production') {
   dotenv.config({ path: ".env.production" });  // For production
-  logger.info("production");
+  logger.info("env production");
 } else {
   dotenv.config();  // For development, it loads .env file by default
-  logger.info("development");
+  logger.info("env development");
 }
 
 // write log to /var/www/sliprecs/combined.log
@@ -53,7 +53,7 @@ app.use(
 
 app.use(express.json()); // For parsing application/json
 
-logger.info(path.join(__dirname, "uploads"));
+//logger.info(path.join(__dirname, "uploads"));
 
 // Serve static files from the `uploads` directory
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
