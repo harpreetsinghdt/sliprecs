@@ -7,8 +7,8 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-backend/uploads/receipt/*
-backend/uploads/images/*
+backend/uploads/receipt*
+backend/uploads/images*
 
 # Don't ignore the .gitkeep file
 !backend/uploads/receipt/.gitkeep
