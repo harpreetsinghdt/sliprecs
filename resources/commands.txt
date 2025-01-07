@@ -1,14 +1,74 @@
-// check ubuntu version 
+// Check ubuntu version 
 lsb_release -a
 
+// Install Nginx (Linux-based systems)
+sudo apt update
+sudo apt install nginx
+nginx -v
 
-
-sudo nano /etc/nginx/sites-available/sliprecs
-
-sudo ln -s /etc/nginx/sites-available/sliprecs /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl status nginx
+sudo systemctl stop nginx
 sudo systemctl restart nginx
+sudo systemctl reload nginx
+
+// Adding a site configuration file for your project in Nginx
+sudo nano /etc/nginx/sites-available/sliprecs // copy nginx.txt file 
+sudo ln -s /etc/nginx/sites-available/sliprecs /etc/nginx/sites-enabled/
+
+
+// Install nodejs and npm and check node version
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y curl software-properties-common
+curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+sudo apt install -y nodejs
+node -v
+npm -v
+
+
+// Install PM2 to manage your Node.js application
+sudo npm install -g pm2
+npm install -g npm@11.0.0 (if specific version)
+pm2 -v
+
+// Install git or check version
+sudo apt update
+sudo apt install git -y
+git --version
+
+
+// Generate an SSH Key -> https://chatgpt.com/c/677d93a0-21e4-800b-a5b9-cb9bac2048e8
+ls ~/.ssh
+
+ssh-keygen -t rsa -b 4096 -C "harpnine@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+
+// Clone git repository to /var/www
+git clone git@github.com:harpreetsinghdt/sliprecs.git
+
+// Create webhook file on /sliprecs/webhook.js and copy paste content of file from resources folder and provide permissions
+sudo chmod -R 755 /var/www/sliprecs/webhook.js
+
+// Excute the webhook with pm2 process manager to run on git push action 
+pm2 start /sliprecs/webhook.js
+
+
+// Create deployment file at /sliprecs/deploy.sh and copy paste content of file from resources folder
+
+// Start backend server 
+pm2 start sliprecs/backend/server.js --name sliprecs-backend
+
+
+
+
+
+#################################################################
+
+
+
 
 
 sudo chmod -R 755 /var/www/sliprecs/frontend/dist
@@ -17,10 +77,7 @@ sudo chown -R www-data:www-data /var/www/sliprecs/frontend/dist
 sudo chmod -R 755 /var/www/sliprecs/pm2.config.json
 
 sudo nano /etc/nginx/sites-available/default
-sudo systemctl restart nginx
 
-sudo nginx -t
-sudo systemctl reload nginx
 
 // Check if the backend is running
 ps aux | grep <your_backend_process>
