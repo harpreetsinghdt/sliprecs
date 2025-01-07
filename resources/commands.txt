@@ -54,6 +54,7 @@ sudo chmod -R 755 /var/www/sliprecs/webhook.js
 
 // Excute the webhook with pm2 process manager to run on git push action 
 pm2 start /sliprecs/webhook.js
+pm2 stop /sliprecs/webhook.js
 
 
 // Create deployment file at /sliprecs/deploy.sh and copy paste content of file from resources folder

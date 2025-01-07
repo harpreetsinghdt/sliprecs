@@ -16,6 +16,7 @@ const LandingPage = () => {
             wolf magic begins
             wolf magic begins
             wolf magic begins
+            wolf magic begins
           </a> 
         </div>
       </section>
