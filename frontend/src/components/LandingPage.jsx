@@ -15,6 +15,7 @@ const LandingPage = () => {
             Lets Get Start new year with new goals 
             wolf magic begins
             wolf magic begins
+            wolf magic begins
           </a> 
         </div>
       </section>
