@@ -27,7 +27,7 @@ const upload = multer({ storage: storage });
 router.get("/", (req, res) => {
   res.json({
     message:
-      "Welcome to the nodejs + express backend API. Happy New Year 2025 Have a successful year ahead 2025 new goals and milestones its amazing ds",
+      "Welcome to the nodejs + express backend API.",
   });
 });
 
