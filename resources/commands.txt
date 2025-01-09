@@ -22,6 +22,12 @@ sudo nano /etc/nginx/sites-available/default
 sudo nano /etc/nginx/sites-available/sliprecs // copy nginx.txt file 
 sudo ln -s /etc/nginx/sites-available/sliprecs /etc/nginx/sites-enabled/
 
+sudo nano /etc/nginx/sites-available/numeroacle
+sudo ln -s /etc/nginx/sites-available/numeroacle /etc/nginx/sites-enabled/
+
+sudo nginx -t    # Test the configuration for errors
+sudo systemctl reload nginx
+
 
 // Install nodejs and npm and check node version
 sudo apt update && sudo apt upgrade -y
@@ -105,6 +111,8 @@ pm2 stop /sliprecs/webhook.js
 
 // Start backend server 
 pm2 start sliprecs/backend/server.js --name sliprecs-backend
+
+pm2 start numeroacle/backend/index.js --name numeroacle-backend
 
 
 
