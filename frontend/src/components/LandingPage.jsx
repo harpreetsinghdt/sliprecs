@@ -11,13 +11,9 @@ const LandingPage = () => {
           <p className="lead">
             Effortlessly save and organize your receipts in one place!
           </p>
-          <a href="#cta" className="cta-btn"> 
-            Lets Get Start new year with new goals 
-            wolf magic begins
-            wolf magic begins
-            wolf magic begins
-            wolf magic begins
-          </a> 
+          <a href="#cta" className="cta-btn">
+            Lets Get Start wolf magic begins
+          </a>
         </div>
       </section>
       {/* Features Section */}
