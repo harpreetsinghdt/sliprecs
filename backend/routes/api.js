@@ -11,7 +11,7 @@ const Receipt = require("../models/Receipt");
 
 const logger = require("../winstonLogger.js");
 
-// Configure storage for uploaded files
+// Configure storage for uploaded files fd
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/receipts"); // Set upload directory
