@@ -248,6 +248,7 @@ pm2 start ecosystem.config.js --env production
 
 
 pm2 start /sliprecs/webhook.js --name git-webhook
+pm2 start webhook.js --name sliprecs-webhook
 
 NODE_ENV=production pm2 restart sliprecs-backend
 NODE_ENV=production pm2 restart numeroacle-backend
