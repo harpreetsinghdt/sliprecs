@@ -26,8 +26,7 @@ const upload = multer({ storage: storage });
 // Define an example GET route
 router.get("/", (req, res) => {
   res.json({
-    message:
-      "Welcome to the nodejs + express backend API.",
+    message: "Welcome to the nodejs + express backend API for sliprecs.",
   });
 });
 
@@ -122,7 +121,7 @@ router.post("/signup", async (req, res) => {
 // Login POST route
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
-logger.info(req.body);
+  logger.info(req.body);
   if (!email || !password) {
     return res
       .status(400)

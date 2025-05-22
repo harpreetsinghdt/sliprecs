@@ -1,6 +1,8 @@
-* {
-  max-width: 768px !important;
+html {
+  margin: 0 auto;
+  width: 100%;
 }
+
 .nav-link {
   text-align: right;
 }
@@ -81,7 +83,7 @@ a {
   border: 0;
   border-radius: 5px;
 }
-.downloadIcon{
+.downloadIcon {
   padding: 5px;
   border-radius: 5px;
 }

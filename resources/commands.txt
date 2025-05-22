@@ -242,7 +242,7 @@ pm2 start -f sliprecs/backend/server.js --name sliprecs-backend
 
 pm2 start backend/server.js --name sliprecs-backend --env production
 
-pm2 start backend/server.js --name sliprecs-backend --env production -- NODE_ENV=production
+pm2 start backend/index.js --name numeroacle-backend --env production -- NODE_ENV=production
 
 pm2 start ecosystem.config.js --env production
 
@@ -250,6 +250,7 @@ pm2 start ecosystem.config.js --env production
 pm2 start /sliprecs/webhook.js --name git-webhook
 
 NODE_ENV=production pm2 restart sliprecs-backend
+NODE_ENV=production pm2 restart numeroacle-backend
 
 pm2 examples
 
